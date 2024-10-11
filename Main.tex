@@ -5,7 +5,8 @@
 % Description: It is a general-use LaTeX solution template for presentation/talk slides.
 % N.B.: It is compiled successfully with pdfTeX 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) on Kubuntu 20.04.3 LTS.
 
-\documentclass[hyperref = {pdftex, breaklinks = true}, aspectratio = 169]{beamer}
+\PassOptionsToPackage{pdftex, breaklinks=true}{hyperref}
+\documentclass[aspectratio=169]{beamer}
 % `beamer` loads `hyperref` automatically.
 % `breaklinks = true` allows links to break over lines.
 % `aspectratio = 169` sets aspect ratio to 16:9.
