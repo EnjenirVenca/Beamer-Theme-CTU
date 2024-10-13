@@ -3,27 +3,19 @@
 % Mostly taken from CTU's graphical manual on CTU website:
 % https://www.cvut.cz/sites/default/files/content/e254fb38-e72d-463b-8c9f-cb0435416f29/cs/20201112-graficky-manual-identity-cvut-v-praze.pdf
 \definecolor{ctu-white}{RGB}{255,255,255}
-\definecolor{ctu-lightyellow}{RGB}{255,255,243}
+\definecolor{ctu-lightyellow}{RGB}{255,255,243} % The background canvas colour.
 \definecolor{ctu-lightblue}{HTML}{6BB0E2}
 \definecolor{ctu-yellow}{HTML}{F9B000}
-\definecolor{ctu-azure}{HTML}{00A8AB}
+\definecolor{ctu-azure}{HTML}{00A8AB} % The item colour.
 \definecolor{ctu-green}{HTML}{9FB000}
 \definecolor{ctu-gray}{HTML}{9D9C9C}
 \definecolor{ctu-pink}{HTML}{EA5792}
 \definecolor{ctu-orange}{HTML}{E9530D}
 \definecolor{ctu-red}{HTML}{D60829}
 \definecolor{ctu-purple}{HTML}{A20E3E}
-\definecolor{ctu-blue}{HTML}{0071BB}
+\definecolor{ctu-blue}{HTML}{0071BB} % The colour for (frame) titles, footlines etc.
 \definecolor{ctu-darkblue}{HTML}{005863}
 \definecolor{ctu-black}{HTML}{000000}
-
-\definecolor{mywhite}{RGB}{255, 255, 243} % The background canvas colour.
-\definecolor{myred}{RGB}{230, 37, 52} % The colour for (frame) titles, footlines etc.
-\definecolor{mygrey}{RGB}{208, 202, 194} % The block body colour.
-\definecolor{mylightgreen}{RGB}{127, 207, 171} % The item colour.
-\definecolor{mydarkgreen}{RGB}{47, 121, 68} % The example colour.
-\definecolor{mylightblue}{RGB}{22, 190, 207} % The alert colour.
-\definecolor{mydarkblue}{RGB}{0, 61, 121} % The block title colour.
 
 % The colour configuration.
 \setbeamercolor{background canvas}{bg = ctu-lightyellow}
@@ -34,12 +26,13 @@
 \setbeamercolor{section in head/foot}{fg = ctu-lightyellow, bg = ctu-blue}
 \setbeamercolor{subsection in head/foot}{fg = ctu-lightyellow, bg = ctu-blue}
 
-\setbeamercolor{item projected}{fg = ctu-lightyellow, bg = mylightgreen}
-\setbeamercolor{subitem projected}{fg = ctu-lightyellow, bg = mylightgreen}
-\setbeamercolor{subsubitem projected}{fg = ctu-lightyellow, bg = mylightgreen}
-\setbeamercolor{itemize item}{fg = mylightgreen}
-\setbeamercolor{itemize subitem}{fg = mylightgreen}
-\setbeamercolor{itemize subsubitem}{fg = mylightgreen} 
+\setbeamercolor{item projected}{fg = ctu-lightyellow, bg = ctu-azure}
+\setbeamercolor{subitem projected}{fg = ctu-lightyellow, bg = ctu-azure}
+\setbeamercolor{subsubitem projected}{fg = ctu-lightyellow, bg = ctu-azure}
+\setbeamercolor{itemize item}{fg = ctu-azure}
+\setbeamercolor{itemize subitem}{fg = ctu-azure}
+\setbeamercolor{itemize subsubitem}{fg = ctu-azure} 
+\setbeamercolor{alerted text}{fg=ctu-red}
 
 \setbeamercolor{bibliography item}{fg=ctu-black}
 \setbeamercolor{bibliography entry author}{fg=ctu-blue}
@@ -91,4 +84,30 @@
 \AtBeginEnvironment{corollary}{
   \setbeamercolor{block title}{fg=white,bg=ctu-azure!75!black}
   \setbeamercolor{block body}{bg=ctu-azure!25!,fg=ctu-black}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        Code blocks       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define Monokai colors
+\definecolor{monokai-background}{RGB}{39,40,34} % Background color
+\definecolor{monokai-foreground}{RGB}{248,248,242} % Foreground text color
+\definecolor{monokai-keyword}{RGB}{249,38,114} % Keywords (pink/red)
+\definecolor{monokai-comment}{RGB}{117,113,94} % Comments (gray)
+\definecolor{monokai-string}{RGB}{230,219,116} % Strings (yellow)
+\definecolor{monokai-number}{RGB}{174,129,255} % Numbers (purple)
+\definecolor{monokai-function}{RGB}{166,226,46} % Functions (green)
+
+\lstset{
+  backgroundcolor=\color{monokai-background},  % Set background color
+  basicstyle=\ttfamily\footnotesize\color{monokai-foreground}, % Code font size and color
+  keywordstyle=\color{monokai-keyword},        % Keywords color
+  commentstyle=\color{monokai-comment},        % Comments color
+  stringstyle=\color{monokai-string},          % Strings color
+  numberstyle=\tiny\color{monokai-number},     % Line numbers styling
+  frame=single,                                % Add a frame around the code
+  breaklines=true,                             % Line breaking
+  showstringspaces=false,                      % Hide spaces in strings
+  numbers=left                                 % Line numbers on the left
 }

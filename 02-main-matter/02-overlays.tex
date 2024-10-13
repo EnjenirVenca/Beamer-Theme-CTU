@@ -1,0 +1,55 @@
+%!TEX root = ../Main.tex
+
+\section{Overlays}
+
+\subsection{Usage of Overlays}
+
+\begin{frame}{Using \textbackslash pause in a List}
+    The \textbackslash pause command allows you to reveal list items progressively during a presentation:
+    \begin{itemize}
+        \item First, show the title or context
+        \pause
+        \item Then introduce key concepts, one at a time
+        \pause
+        \item Finally, conclude with summary points or takeaways
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Using \textbackslash uncover, \textbackslash visible, and \textbackslash only}
+    \begin{description}
+        \item[\textbackslash uncover] The content is present in the slide but hidden, occupying space.
+        \item[\textbackslash visible] Similar to \textbackslash uncover, but if content is hidden, it does not show as transparent.
+        \item[\textbackslash only] The content is only present on specific slides, and it does not occupy space on others.
+    \end{description}
+\end{frame}
+
+\subsection{Examples of Overlay Commands}
+
+\begin{frame}{Progressive Text Revealing with \textbackslash uncover}
+
+    We will now reveal three pieces of information one by one:
+    \begin{itemize}
+        \uncover<1->{\item First piece of information revealed.}
+        \uncover<2->{\item Second piece of information revealed.}
+        \uncover<3->{\item Third piece of information revealed.}
+    \end{itemize}
+    
+    As the presentation progresses, each item becomes visible at its designated step.
+    
+\end{frame}
+
+\begin{frame}{Conditional Display with \textbackslash only and \textbackslash visible}
+
+    \only<1-2>{
+        This content is shown on the first and second slides only.
+    }
+
+    \visible<3-4>{
+        This content is visible only on the third and fourth slides, but it occupies space on all slides.
+    }
+
+    \uncover<5>{
+        This content is uncovered on the fifth slide, occupying space even when hidden on earlier slides.
+    }
+
+\end{frame}

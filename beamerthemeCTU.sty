@@ -5,13 +5,14 @@
 %%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[backend=biber, style=numeric, maxnames=1, alldates=iso, seconds=true]{biblatex}
+\RequirePackage[backend=biber, style=numeric, maxnames=1, alldates=iso, seconds=true, sorting=none]{biblatex}
 % `backend = biber` specifies the use of `biber` as the bibliography processor, which is compatible with `biblatex`.
 % `style = numeric` implements a numeric citation scheme, suitable for referencing with numbers in the text.
 % `maxnames = 1` limits the number of names shown in citations and the bibliography to a maximum of 1.
 % `alldates = iso` formats all dates in the bibliography and citations according to the ISO 8601 standard (YYYY-MM-DD).
 % `seconds = true` ensures that time fields include seconds when available in the references.
-\addbibresource{Back_Matter/References.bib}
+% `sorting = none` ensures that entries are listed in the order they are first cited in the document.
+\addbibresource{03-back-matter/references.bib}
 
 \RequirePackage{microtype}
 % Micro-adjusts font spacing.
@@ -28,6 +29,9 @@
 \usetikzlibrary{calc, positioning}
 
 \RequirePackage{multicol} % Splits a long ToC.
+
+\RequirePackage{listings}  % Package to display code block
+\RequirePackage{xcolor}    % For coloring the code
 
 %\RequirePackage[czech]{babel} % For Czech.
 
@@ -61,6 +65,8 @@
   \printtext[bold]{%
     \printnames{author}}%
 }
+
+% TODO Add logo-white.eps on all slides
 
 % Adds a customized footline.
 \setbeamertemplate{footline}
@@ -112,7 +118,7 @@
 	\end{tikzpicture}
 }
 
-\input{Front_Matter/Fields} % Loads fields mainly used in the title page.
+\input{01-front-matter/fields.tex} % Loads fields mainly used in the title page.
 
 \AtBeginSection[]
 % Pops up the outline for each section.
@@ -150,7 +156,7 @@
 {
 	\section*{\refname}
 
-	\begin{frame}{\refname}
+	\begin{frame}[allowframebreaks]{\refname}
 		\printbibliography[heading = none]
 	\end{frame}
 

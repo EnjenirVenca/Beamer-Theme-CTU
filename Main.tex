@@ -15,19 +15,20 @@
 
 \usepackage{graphicx} % Inserts PNG/JPG images.
 
-\usetheme{ExecusharesRemastered}
-\usecolortheme{ExecusharesRemastered}
+\usetheme{CTU}
+\usecolortheme{CTU}
 
 \begin{document}
 	% The front matter.
 	\printfrontmatter
 
 	% The matter matter.
-	\input{Main_Matter/01-Elements}
-	\input{Main_Matter/02-Overlays}
+	\input{02-main-matter/01-elements} % First section
+	\input{02-main-matter/02-overlays} % Second section
+	% Add more sections if needed.
 
 	% The back matter.
 	\printbackmatter
 	\appendix
-	\input{Back_Matter/Appendix}
+	\input{03-back-matter/appendix}
 \end{document}

@@ -1,14 +1,13 @@
-# Beamer-Theme-Execushares-Remastered
+# Beamer-Theme-CTU
 
-The project is inspired by [Better Beamer Themes](https://blog.hamaluik.ca/posts/better-beamer-themes/); compared to the original one, it shares [the same colour palette](https://kuler.adobe.com/userId%3A1738589-art-colors/) with a brand-new visual design and a few extra features:
+The project is inspired by [Beamer-Theme-Execushares-Remastered](https://github.com/ChosenOne2241/Beamer-Theme-Execushares-Remastered); compared to the remastered version, it modifies the fonts and colors to align with the CTU design manual, ensuring consistency and cohesion with the university's visual identity.
 
-* A clearer directory structure
-* Sticks to pdfLaTeX, rather than XeLaTeX
-* Imports BibLaTeX for references instead of BibTeX
-* Extracts the colour theme from the style file, making it easier to change
-* Uses `\(` and `\)` instead of dollar signs (`$`) to display inline mathematical formulae (whose reason is explained in [the link](https://tex.stackexchange.com/questions/510/are-and-preferable-to-dollar-signs-for-math-mode))
-* Enables appendix in Beamer presentations (which is not recommended in the most cases)
-
-Also, we append a short tutorial on creating overlays (`\pause`, `\visible` and `\only`).
+* It uses the CTU defined colors for blocks and anything else.
+* Unfortunately it does not use the Technika font, rather the Source Sans Pro due to better compatability with Latex
+* Fixes the hyperref error warning.  
+* Added code block example at the end.
 
 Compilation order: run `pdflatex` on `Main.tex` first, then invoke `biber` (instead of `bibtex`), and finally apply `pdflatex` **two more times**.
+
+* TODO list:
+    1. Add the white logo to all the slides.
