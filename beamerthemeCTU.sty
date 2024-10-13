@@ -164,9 +164,29 @@
 
 	\begin{frame}<presentation>
 		\centering
-		\only<1>{\Huge{Thank you very much!}}
+		\only<1>{%
+			\Huge{Thank you very much!}
+			\vspace{0.8cm} % Adds space between the heading and the columns
+			\begin{columns}
+				\begin{column}{0.45\textwidth}
+					\normalsize % Ensures regular text size for the column
+					\textbf{\myauthor}
+					\\
+					\textit{\role}
+					\vspace{0.8cm}
+					\\
+					\phone
+					\\
+					\email
+				\end{column}
+				\begin{column}{0.45\textwidth}
+					\vspace{0.5cm}
+					\includegraphics[width=0.8\textwidth]{03-back-matter/example-image.jpg}
+				\end{column}
+			\end{columns}
+		}
 		\only<2>{\Huge{Q\&A}}
-	\end{frame}
+	\end{frame}	
 }
 
 \renewcommand{\appendixname}{Appendix}
