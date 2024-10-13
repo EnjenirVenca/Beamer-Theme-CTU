@@ -4,13 +4,13 @@
 % Package loading. %
 %%%%%%%%%%%%%%%%%%%%
 
-\RequirePackage[style = authoryear-comp, sorting = none, backref = true, backrefstyle = none, doi = false]{biblatex}
-% `biblatex` is a newer and more flexible package being actively developped and covering all functionalites of `notbib`.
-% `style = authoryear-comp` implements a compact author-year citation scheme intended for in-text citations;
-% `sorting = none` makes all entries processed in citation order;
-% `backref = true` activates back references inside the bibliography;
-% `backrefstyle = none` does not compress the page list;
-% `doi = false` disables the printing of `doi` fields.
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[backend=biber, style=numeric, maxnames=1, alldates=iso, seconds=true]{biblatex}
+% `backend = biber` specifies the use of `biber` as the bibliography processor, which is compatible with `biblatex`.
+% `style = numeric` implements a numeric citation scheme, suitable for referencing with numbers in the text.
+% `maxnames = 1` limits the number of names shown in citations and the bibliography to a maximum of 1.
+% `alldates = iso` formats all dates in the bibliography and citations according to the ISO 8601 standard (YYYY-MM-DD).
+% `seconds = true` ensures that time fields include seconds when available in the references.
 \addbibresource{Back_Matter/References.bib}
 
 \RequirePackage{microtype}
@@ -21,13 +21,15 @@
 \RequirePackage{amsthm, amssymb}
 % If `amsthm` is used with a non-AMS document class and with `amsmath`, `amsthm` must be loaded after `amsmath`, not before.
 
-\RequirePackage{DejaVuSerif} % Uses the DejaVu fonts.
+\RequirePackage{sourcesanspro} % Uses the Source Sans Pro fonts.
 \RequirePackage[T1]{fontenc}
 
 \RequirePackage{tikz} % Creates the redesigned title page and draws circles in the footline.
 \usetikzlibrary{calc, positioning}
 
 \RequirePackage{multicol} % Splits a long ToC.
+
+%\RequirePackage[czech]{babel} % For Czech.
 
 %%%%%%%%%%%%%%%%%%%%
 % Format settings. %
@@ -36,11 +38,8 @@
 \mode<presentation>
 
 \useinnertheme{circles} % `itemize` and `enumerate` items start with a small circle.
-\usefonttheme[stillsansseriflarge]{serif} % For serif body text.
 \usefonttheme[onlylarge]{structurebold}
 % It causes titles and text in the the main title, frame titles, and section entries in the table of contents to be typeset in a bold font.
-\setbeamertemplate{bibliography item}[triangle]
-% It makes all bibliography items in the bibliography start with a triangle.
 \setbeamertemplate{qed symbol}{\textcolor{black}{\(\blacksquare\)}}
 % It redefines the QED symbol as a black square in the `proof` environment of `beamer` only; it does not completely suppress the symbol.
 \setbeamertemplate{navigation symbols}{} % Removes the navigation bar.
@@ -57,59 +56,57 @@
 \setbeamerfont{itemize/enumerate subbody}{size = \normalsize}
 \setbeamerfont{itemize/enumerate subsubbody}{size = \small}
 
+% Customize the bibliography entry format
+\renewbibmacro*{author}{%
+  \printtext[bold]{%
+    \printnames{author}}%
+}
+
 % Adds a customized footline.
 \setbeamertemplate{footline}
 {
-	\leavevmode
-	% N.B.: The percentage symbols inside `\hbox` are critical here, since the `\hbox` enviroment will insert spaces whenever there exists a whitespace.
-	\hbox
-	{%
-		\ifbeamer@inappendix
-			\begin{beamercolorbox}[wd = .33\paperwidth, ht = 2.5ex, dp = 1.125ex, center]{section in head/foot}
-				\usebeamerfont{section in head/foot}\appendixname
-			\end{beamercolorbox}%
-			\begin{beamercolorbox}[wd = .34\paperwidth, ht = 2.5ex, dp = 1.125ex, center]{subsection in head/foot}
-				\usebeamerfont{subsection in head/foot}\insertsection
-			\end{beamercolorbox}%
-		\else
-			\begin{beamercolorbox}[wd = .33\paperwidth, ht = 2.5ex, dp = 1.125ex, center]{section in head/foot}
-				\usebeamerfont{section in head/foot}\insertsection
-			\end{beamercolorbox}%
-			\begin{beamercolorbox}[wd = .34\paperwidth, ht = 2.5ex, dp = 1.125ex, center]{subsection in head/foot}
-				\usebeamerfont{subsection in head/foot}\insertsubsection
-			\end{beamercolorbox}%
-		\fi
-		\begin{beamercolorbox}[wd = .33\paperwidth, ht = 2.5ex, dp = 1.125ex]{section in head/foot}
-		\end{beamercolorbox}%
-	}
-	\vskip0pt
-	\begin{tikzpicture}[overlay]
-		\usebeamercolor[bg]{section in head/foot}
-		\draw[fill] (\paperwidth - 5ex, 3.625ex) circle (6ex);
-		\usebeamercolor[mywhite]{section in head/foot}
-		\draw[fill] (\paperwidth - 5ex, 3.625ex) circle (5ex);
-		\usebeamercolor[black]{section in head/foot}
-		% In the main part before the `\appendix` command the current frame number and the total number of frames in the main part is displayed. In the appendix only the frame number within the appendix and the total number of frames in the appendix are shown.
-		\ifbeamer@inappendix
-			\node at (\paperwidth - 5ex, 4ex) {\footnotesize \(^\text{\insertframenumberinappendix} / _\text{\insertappendixframenumber}\)};
-		\else
-			\node at (\paperwidth - 5ex, 4ex) {\footnotesize \(^\text{\insertframenumber} / _\text{\insertmainframenumber}\)};
-		\fi
-	\end{tikzpicture}
+    \leavevmode
+    \hbox
+    {%
+        \ifbeamer@inappendix
+            \begin{beamercolorbox}[wd = .33\paperwidth, ht = 2.5ex, dp = 1.125ex, center]{section in head/foot}
+                \usebeamerfont{section in head/foot}\appendixname
+            \end{beamercolorbox}% 
+            \begin{beamercolorbox}[wd = .34\paperwidth, ht = 2.5ex, dp = 1.125ex, center]{subsection in head/foot}
+                \usebeamerfont{subsection in head/foot}\insertsection
+            \end{beamercolorbox}% 
+        \else
+            \begin{beamercolorbox}[wd = .33\paperwidth, ht = 2.5ex, dp = 1.125ex, center]{section in head/foot}
+                \usebeamerfont{section in head/foot}\insertsection
+            \end{beamercolorbox}% 
+            \begin{beamercolorbox}[wd = .34\paperwidth, ht = 2.5ex, dp = 1.125ex, center]{subsection in head/foot}
+                \usebeamerfont{subsection in head/foot}\insertsubsection
+            \end{beamercolorbox}% 
+        \fi
+        \begin{beamercolorbox}[wd = .33\paperwidth, ht = 2.5ex, dp = 1.125ex, center]{section in head/foot}
+            \usebeamerfont{section in head/foot}%
+            \ifbeamer@inappendix
+                \insertframenumberinappendix{} / \insertappendixframenumber
+            \else
+                \insertframenumber{} / \insertmainframenumber
+            \fi
+        \end{beamercolorbox}% 
+    }
+    \vskip0pt
 }
 
 % Adds a customized title page.
 \setbeamertemplate{title page}
 {
 	\begin{tikzpicture}[remember picture, overlay]
-		\fill [myred] ([yshift = 15pt] current page.west) rectangle (current page.south east);
-		\node [anchor = east] at ([yshift = -50pt] current page.north east) (author)
-		{\parbox[t]{0.6\paperwidth}{\raggedleft\usebeamerfont{author}\textcolor{myred}{\insertauthor}}};
-		\node [anchor = north east] at ([yshift = -70pt] current page.north east) (institute)
+		\fill [ctu-blue] ([yshift = 15pt] current page.west) rectangle (current page.south east);
+		\node [anchor = east] at ([xshift = -20pt, yshift = -50pt] current page.north east) (author)
+		{\parbox[t]{0.6\paperwidth}{\raggedleft\usebeamerfont{author}\textcolor{ctu-blue}{\insertauthor}}};
+		\node [anchor = north east] at ([xshift = -20pt, yshift = -70pt] current page.north east) (institute)
 		{\parbox[t]{0.8\paperwidth}{\raggedleft\usebeamerfont{institute}\textcolor{black}{\insertinstitute}}};
-		\node [anchor = south west] at ([yshift = 20pt] current page.west) (logo)
+		\node [anchor = south west] at ([xshift = 10pt, yshift = 25pt] current page.west) (logo)
 		{\parbox[t]{0.2\paperwidth}{\raggedleft\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic}};
-		\node [anchor = east] at ([xshift = -20pt, yshift = -15pt] current page.east) (title) {\parbox[t]{\textwidth}{\raggedleft\usebeamerfont{title}\textcolor{mywhite}{\inserttitle}}};
+		\node [anchor = east] at ([xshift = -20pt, yshift = -15pt] current page.east) (title) {\parbox[t]{\textwidth}{\raggedleft\usebeamerfont{title}\textcolor{ctu-lightyellow}{\inserttitle}}};
 		\node [anchor = east] at ([xshift = -20pt, yshift = -65pt] current page.east) (subtitle) {\parbox[t]{0.6\paperwidth}{\raggedleft\usebeamerfont{subtitle}\textcolor{black}{\insertsubtitle}}};
 		\node [anchor = east] at ([xshift = -20pt, yshift = -100pt] current page.east) (date) {\parbox[t]{0.3\paperwidth}{\raggedleft\usebeamerfont{date}\textcolor{black}{\insertdate}}};
 	\end{tikzpicture}

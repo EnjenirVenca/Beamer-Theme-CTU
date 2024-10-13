@@ -26,25 +26,69 @@
 \definecolor{mydarkblue}{RGB}{0, 61, 121} % The block title colour.
 
 % The colour configuration.
-\setbeamercolor{background canvas}{bg = mywhite}
-\setbeamercolor{title}{fg = mywhite, bg = myred}
-\setbeamercolor{frametitle}{fg = mywhite, bg = myred}
-\setbeamercolor{structure}{fg = myred}
-\setbeamercolor{footnote mark}{fg = myred}
-\setbeamercolor{section in head/foot}{fg = mywhite, bg = myred}
-\setbeamercolor{subsection in head/foot}{fg = mywhite, bg = myred}
+\setbeamercolor{background canvas}{bg = ctu-lightyellow}
+\setbeamercolor{title}{fg = ctu-lightyellow, bg = ctu-blue}
+\setbeamercolor{frametitle}{fg = ctu-lightyellow, bg = ctu-blue}
+\setbeamercolor{structure}{fg = ctu-blue}
+\setbeamercolor{footnote mark}{fg = ctu-blue}
+\setbeamercolor{section in head/foot}{fg = ctu-lightyellow, bg = ctu-blue}
+\setbeamercolor{subsection in head/foot}{fg = ctu-lightyellow, bg = ctu-blue}
 
-\setbeamercolor{block title}{fg = mywhite, bg = mydarkblue}
-\setbeamercolor{block body}{bg = mygrey}
-\setbeamercolor{block title example}{fg = mywhite, bg = mydarkgreen}
-\setbeamercolor{block body example}{bg = mygrey}
-\setbeamercolor{block title alerted}{fg = mywhite, bg = mylightblue}
-\setbeamercolor{block body alerted}{bg = mygrey}
-\setbeamercolor{alerted text}{fg = mylightblue}
-
-\setbeamercolor{item projected}{fg = mywhite, bg = mylightgreen}
-\setbeamercolor{subitem projected}{fg = mywhite, bg = mylightgreen}
-\setbeamercolor{subsubitem projected}{fg = mywhite, bg = mylightgreen}
+\setbeamercolor{item projected}{fg = ctu-lightyellow, bg = mylightgreen}
+\setbeamercolor{subitem projected}{fg = ctu-lightyellow, bg = mylightgreen}
+\setbeamercolor{subsubitem projected}{fg = ctu-lightyellow, bg = mylightgreen}
 \setbeamercolor{itemize item}{fg = mylightgreen}
 \setbeamercolor{itemize subitem}{fg = mylightgreen}
 \setbeamercolor{itemize subsubitem}{fg = mylightgreen} 
+
+\setbeamercolor{bibliography item}{fg=ctu-black}
+\setbeamercolor{bibliography entry author}{fg=ctu-blue}
+\setbeamercolor{bibliography entry title}{fg=ctu-red}
+\setbeamercolor{bibliography entry location}{fg=ctu-orange}
+\setbeamercolor{bibliography entry note}{fg=ctu-black}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       All the boxes      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Generic/Standard block
+\setbeamercolor{block title}{bg=ctu-blue,fg=ctu-lightyellow}
+\setbeamercolor{block body}{bg=ctu-blue!25!,fg=ctu-black}
+
+% Highlighted Alert block
+\setbeamercolor{block title alerted}{bg=ctu-red,fg=ctu-lightyellow}
+\setbeamercolor{block body alerted}{bg=ctu-red!25!,fg=ctu-black}
+
+% Example block (exampleblock)
+\setbeamercolor{block title example}{bg=ctu-yellow,fg=ctu-lightyellow}
+\setbeamercolor{block body example}{bg=ctu-yellow!25!,fg=ctu-black}
+
+% Theorem block customization
+\AtBeginEnvironment{theorem}{
+  \setbeamercolor{block title}{fg=ctu-lightyellow,bg=ctu-green!75!black}
+  \setbeamercolor{block body}{bg=ctu-green!25!,fg=ctu-black}
+}
+
+% Definition block customization
+\AtBeginEnvironment{definition}{
+  \setbeamercolor{block title}{fg=white,bg=ctu-orange!75!black}
+  \setbeamercolor{block body}{bg=ctu-orange!25!,fg=ctu-black}
+}
+
+% Proof block customization
+\AtBeginEnvironment{proof}{
+  \setbeamercolor{block title}{fg=ctu-lightyellow,bg=ctu-purple!75!black}
+  \setbeamercolor{block body}{bg=ctu-purple!25!,fg=ctu-black}
+}
+
+% Lemma block customization
+\AtBeginEnvironment{lemma}{
+  \setbeamercolor{block title}{fg=white,bg=ctu-pink!75!black}
+  \setbeamercolor{block body}{bg=ctu-pink!25!,fg=ctu-black}
+}
+
+% Corollary block customization
+\AtBeginEnvironment{corollary}{
+  \setbeamercolor{block title}{fg=white,bg=ctu-azure!75!black}
+  \setbeamercolor{block body}{bg=ctu-azure!25!,fg=ctu-black}
+}
